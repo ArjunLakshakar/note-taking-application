@@ -88,12 +88,13 @@ const SignIn: React.FC = () => {
   //   window.location.href = `${API_URL}/api/auth/google`;
   // };
 
-    const handleGoogleSignIn  = async () => {
+  const handleGoogleSignIn = async () => {
     try {
       // Call your backend Google login endpoint
-      const res = await axios.get("${API_URL}/api/auth/google", {
+      const res = await axios.get(`${API_URL}/api/auth/google`, {
         withCredentials: true,
       });
+
 
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
