@@ -28,10 +28,9 @@ router.get(
     // const redirectUrl = `https://note-taking-application-taupe.vercel.app/auth-success?token=${token}&user=${encodeURIComponent(
     //   JSON.stringify(user)
     // )}`;
-    const redirectUrl = `http://localhost:5173/auth-success?token=${token}&user=${encodeURIComponent(
-      JSON.stringify(user)
-    )}`;
-    res.redirect(redirectUrl);
+    // res.redirect(redirectUrl);
+
+    res.json({ token, user });
   }
 );
 
