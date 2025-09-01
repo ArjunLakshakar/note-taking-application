@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormData {
   email: string;
@@ -188,9 +188,9 @@ const SignIn: React.FC = () => {
 
           <p className="text-sm text-gray-500 mt-6">
             Need an account?{" "}
-            <a href="/signup" className="text-blue-500 font-medium">
+            <Link to="/signup" className="text-blue-500 font-medium">
               Create one
-            </a>
+            </Link>
           </p>
         </div>
       </div>

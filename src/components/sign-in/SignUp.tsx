@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -168,9 +169,9 @@ const SignUp: React.FC = () => {
 
         <p className="text-sm text-gray-500 mt-4 text-center sm:text-left">
           Already have an account?{" "}
-          <a href="/signin" className="text-blue-500 font-medium">
+          <Link to="/signin" className="text-blue-500 font-medium">
             Sign in
-          </a>
+          </Link>
         </p>
       </div>
 
