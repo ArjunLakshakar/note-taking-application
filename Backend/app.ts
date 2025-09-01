@@ -30,7 +30,7 @@ app.use(passport.session());
 
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI || "mongodb://localhost:27017/notesapp")
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/notesapp")
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
