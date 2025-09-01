@@ -19,7 +19,7 @@ const AuthSuccess = () => {
       }, 100);
     } else {
       alert("Login failed! Try again.");
-      navigate("/login", { replace: true });
+      navigate("/signin", { replace: true });
     }
   }, [navigate]);
 

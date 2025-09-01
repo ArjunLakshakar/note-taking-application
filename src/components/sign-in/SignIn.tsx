@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
 
-  const API_URL = "http://localhost:5000";
+  const API_URL = "https://note-taking-application-jws4.onrender.com";
 
   // Redirect if already logged in
   useEffect(() => {

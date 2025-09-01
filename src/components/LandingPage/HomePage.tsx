@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
   const [showInput, setShowInput] = useState(false); // ✅ toggle input
   const navigate = useNavigate();
 
-  const API_URL = "http://localhost:5000/api/notes";
+  const API_URL = "https://note-taking-application-jws4.onrender.com/api/notes";
   const token = localStorage.getItem("token") || sessionStorage.getItem("token");
 
   // Load user info

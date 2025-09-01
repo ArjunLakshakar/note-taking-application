@@ -39,7 +39,7 @@ const SignUp: React.FC = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/auth/signup-otp", {
+      await axios.post("https://note-taking-application-jws4.onrender.com/api/auth/signup-otp", {
         email: formData.email,
       });
       setStep(2);
@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://note-taking-application-jws4.onrender.com/api/auth/signup",
         formData
       );
       alert("Signup successful!");

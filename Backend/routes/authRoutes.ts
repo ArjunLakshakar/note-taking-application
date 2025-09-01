@@ -25,7 +25,7 @@ router.get(
     );
 
     // Redirect directly to frontend with token & user info
-    const redirectUrl = `http://localhost:5173/auth-success?token=${token}&user=${encodeURIComponent(
+    const redirectUrl = `https://note-taking-application-taupe.vercel.app/auth-success?token=${token}&user=${encodeURIComponent(
       JSON.stringify(user)
     )}`;
     res.redirect(redirectUrl);
