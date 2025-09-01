@@ -91,7 +91,7 @@ const SignIn: React.FC = () => {
     const handleGoogleSignIn  = async () => {
     try {
       // Call your backend Google login endpoint
-      const res = await axios.get("http://localhost:9090/api/auth/google", {
+      const res = await axios.get("${API_URL}/api/auth/google", {
         withCredentials: true,
       });
 
