@@ -21,7 +21,7 @@ const SignIn: React.FC = () => {
     if (token) navigate("/");
   }, [navigate]);
 
-  // Handle Google OAuth callback
+  // Handle Google OAuth redirect (token + user in query params)
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
@@ -31,15 +31,18 @@ const SignIn: React.FC = () => {
       try {
         const user = JSON.parse(decodeURIComponent(userStr));
 
-        // Google login -> always save in localStorage
+        // Save Google login in localStorage (always)
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
 
-        // Clean URL and redirect
-        window.history.replaceState({}, document.title, "/home");
-        navigate("/");
+        // Clean URL (remove token/user params)
+        window.history.replaceState({}, document.title, "/signin");
+
+        // Redirect to homepage
+        navigate("/", { replace: true });
       } catch (err) {
         console.error("Failed to parse user:", err);
+        alert("Google login failed!");
       }
     }
   }, [navigate]);
@@ -58,8 +61,7 @@ const SignIn: React.FC = () => {
     } catch (error: any) {
       alert("Failed to send OTP! " + (error.response?.data?.msg || error.message));
     }
-
-  }
+  };
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,7 +93,7 @@ const SignIn: React.FC = () => {
   return (
     <div className="min-h-screen sm:flex">
       {/* Left Side - Form */}
-      <div className="sm:relative flex flex-col justify-center  w-full lg:w-2/5 md:w-2/4 sm:4/7 px-10 sm:py-12 py-8">
+      <div className="sm:relative flex flex-col justify-center w-full lg:w-2/5 md:w-2/4 sm:4/7 px-10 sm:py-12 py-8">
         <div className="sm:absolute sm:top-6 sm:left-10 flex items-center justify-center space-x-4">
           <img src="/logo.png" alt="logo" className="w-7 h-7" />
           <span className="font-semibold text-2xl">HD</span>
@@ -99,7 +101,7 @@ const SignIn: React.FC = () => {
 
         <div className="sm:mt-12 mt-6">
           <div className="flex flex-col md:items-start items-center justify-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2  ">Sign in</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">Sign in</h2>
             <p className="text-gray-500 text-sm mb-6">
               Please login to continue to your account.
             </p>
