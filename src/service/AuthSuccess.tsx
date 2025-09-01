@@ -10,16 +10,12 @@ const AuthSuccess = () => {
     const user = params.get("user");
 
     if (token && user) {
-      // Save first
       localStorage.setItem("token", token);
-      localStorage.setItem("user", user); 
+      localStorage.setItem("user", user);
 
-      setTimeout(() => {
-        navigate("/", { replace: true });
-      }, 100);
+      navigate("/", { replace: true });
     } else {
-      alert("Login failed! Try again.");
-      navigate("/signin", { replace: true });
+      navigate("/signin");
     }
   }, [navigate]);
 

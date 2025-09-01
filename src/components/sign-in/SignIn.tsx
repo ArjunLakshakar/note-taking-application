@@ -84,30 +84,8 @@ const SignIn: React.FC = () => {
     }
   };
 
-  // const handleGoogleSignIn = () => {
-  //   window.location.href = `${API_URL}/api/auth/google`;
-  // };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      // Call your backend Google login endpoint
-      const res = await axios.get(`${API_URL}/api/auth/google`, {
-        withCredentials: true,
-      });
-
-
-      if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-
-        navigate("/", { replace: true });
-      } else {
-        alert("Login failed!");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Google login error");
-    }
+  const handleGoogleSignIn = () => {
+    window.location.href = `${API_URL}/api/auth/google`;
   };
 
   return (
