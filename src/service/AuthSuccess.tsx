@@ -13,7 +13,7 @@ const AuthSuccess = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("user", user);
 
-      navigate("/", { replace: true });
+      navigate("/home", { replace: true });
     } else {
       navigate("/signin");
     }

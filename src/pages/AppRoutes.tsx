@@ -14,10 +14,10 @@ const AppRoutes = () => {
                 <Routes>
                     <Route path="/signin" element={<SignIn />} />
                     <Route path="/signup" element={<SignUp />} />
-                    <Route path="/" element={<ProtectedRoute>
+                    <Route path="/home" element={<ProtectedRoute>
                         <HomePage />
                     </ProtectedRoute>} />
-                    <Route path="/auth-success" element={<AuthSuccess />} />
+                    <Route path="/" element={<AuthSuccess />} />
 
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
